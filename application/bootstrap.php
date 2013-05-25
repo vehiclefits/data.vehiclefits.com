@@ -1,7 +1,7 @@
 <?php
 define('VFSEARCH_BASE_PATH', dirname(__FILE__) . '/..');
 define('ELITE_CONFIG_DEFAULT','vendor/vehiclefits/vehicle-fits-core/config.default.ini');
-define('ELITE_CONFIG','Vehicle-Fits-Core/config.ini');
+define('ELITE_CONFIG','config/vf.ini');
 define('ELITE_PATH',false);
 
 class bootstrap
