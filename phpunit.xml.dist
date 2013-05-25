@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnFailure="true"
+        syntaxCheck="false"
+        bootstrap="application/bootstrap.php">
+
+    <!--<php>-->
+        <!--<env name="PHP_TEMP_PATH" value="/tmp"/>-->
+        <!--<env name="PHP_VAF_DB_USERNAME" value="root"/>-->
+        <!--<env name="PHP_VAF_DB_PASSWORD" value=""/>-->
+        <!--<env name="PHP_VAF_DB_NAME" value="vf_core"/>-->
+    <!--</php>-->
+
+    <testsuites>
+        <testsuite name="main">
+            <directory>application</directory>
+        </testsuite>
+    </testsuites>
+
+</phpunit>
