@@ -1,0 +1,25 @@
+<h1>Oops!</h1>
+<h2><?= $this->message ?></h2>
+
+<? /* if ('localhost' == $this->env): */ ?>
+<h3>Exception information:</h3>
+<p>
+    <b>Message:</b> <?= $this->exception->getMessage() ?>
+    <br/>
+    Line: <?= $this->exception->getLine() ?>
+    <br/>
+    File: <?= $this->exception->getFile() ?>
+
+</p>
+
+
+<h3>Stack trace:</h3>
+<pre><?= $this->exception->getTraceAsString() ?></pre>
+
+
+<h3>Request Parameters:</h3>
+<pre><? var_dump($this->request->getParams()) ?></pre>
+
+<h3>Environment:</h3>
+<pre><? var_dump($_SERVER) ?></pre>
+

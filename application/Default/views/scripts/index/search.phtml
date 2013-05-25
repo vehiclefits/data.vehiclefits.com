@@ -1,0 +1,59 @@
+<?php
+$search = new VF_Search;
+$search->setRequest($this->request);
+$search->getFlexible()->storeFitInSession();
+
+?>
+
+<form action="/" method="<?= $search->getMethod() ?>" id="<?= $search->formId() ?>" name="<?= $search->formId() ?>">
+    <input type="hidden" id="vafProduct" value="<?= $search->getProductId() ?>"/>
+
+    <!-- start "category chooser" -->
+    <?php
+    echo '<input type="hidden" name="category" id="categorySelect" value="?" />';
+    ?>
+    <!-- end "category chooser" -->
+
+    <?php
+    $levels = $search->getLevels();
+
+    $searchLevel = new VF_SearchLevel();
+
+    $displayLevels = $search->getLevels();
+    $c = count($displayLevels);
+
+    for ($i = 0; $i < $c; $i++) {
+        $level = $displayLevels[$i];
+        $prevLevel = ($i > 0) ? $displayLevels[$i - 1] : false;
+        echo $searchLevel->display($search, $level, $prevLevel, $this->br_tags);
+    }
+
+    if ($search->showSearchButton()) {
+
+        // clear button
+        if ($search->showClearButton()) {
+            if ('link' == $search->clearButton()) {
+                ?><a href="#" id="vafClear"><?= $search->getClearText() ?></a><?php
+            } else {
+                ?><input type="button" id="vafClear" value="<?= $search->getClearText() ?>" /><?php
+            }
+        }
+
+        echo ' ';
+
+        // search button
+        if ('link' == $search->searchButton()) {
+            ?><a href="#" class="vafSubmit"><?= $search->getSubmitText() ?></a><?php
+        } else {
+            ?><input type="button" value="<?= $search->getSubmitText() ?>" class="vafSubmit" /><?php
+        }
+
+    }
+    ?>
+</form>
+
+<!-- start VAF -->
+<script src="/jquery-1.7.1.min.js" type="text/javascript" language="javascript"></script>
+<script src="/jquery.metadata.pack.js" type="text/javascript" language="javascript"></script>
+<script src="/index.php/js?front=1" type="text/javascript" language="javascript"></script>
+<!-- end VAF -->

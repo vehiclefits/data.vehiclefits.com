@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title>VFSearch</title>
+        <style type="text/css">
+            body
+            {
+                margin:0;
+                background-image:url(/images/bg-top.gif);
+                background-repeat: repeat-x;
+                font-family:sans-serif;
+            }
+
+            img
+            {
+                border:0;
+            }
+            #header
+            {
+                position:relative;
+                height:165px;
+                width:980px;
+            }
+            #vafForm
+            {
+                margin:10px;
+                text-align:center;
+            }
+            .message
+            {
+                text-align:center;
+                background-color: #C6E746;
+                border:1px #000 solid;
+                margin:10px;
+                padding:10px;
+            }
+            .item
+            {
+                border:1px #eee solid;
+                margin:10px;
+                color: #2F2F2F;
+                font: 12px/1.55 Open Sans,Arial,Helvetica,sans-serif;
+            }
+            .item a
+            {
+                font-family: 'Open Sans',arial,sans-serif;
+                font-size: 13pt;
+                font-weight: bold;
+                line-height: 1.35;
+            }
+            .item p
+            {
+                font-size:15px;
+            }
+            .item .price
+            {
+                font-size:25px;
+                display:block;
+                color:green;
+            }
+            .item img
+            {
+                float:left;
+                margin-right:20px;
+            }
+            .item .additional
+            {
+                float:right;
+                text-align:right;
+            }
+            .splash .intro
+            {
+                margin-left:20%;
+                margin-right:20%;
+            }
+            .splash .sellers
+            {
+                margin-left:20%;
+                text-align:left;
+                float:left;
+                width:30%;
+            }
+            .splash .buyers
+            {
+                float:right;
+                margin-right:20%;
+                width:25%;
+            }
+            .splash .buyers #vafForm
+            {
+                text-align:left;
+            }
+            .splash .buyers #vafForm input,
+            .splash .buyers #vafForm select
+            {
+                display:block;
+            }
+            .splash .buyers #vafForm #vafClear
+            {
+                display:none;
+            }
+            #logo
+            {
+                margin-top:38px;
+            }
+            .footer
+            {
+                margin-top:25px;
+                text-align:center;
+            }
+        </style>
+</head>
+<body>
+    <div id="header">
+        <a href="/index.php"><img id="logo" src="/images/logo.png" /></a>
+    </div>
+    
+        
+    <?php
+    $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
+
+    if ($flashMessenger->hasMessages())
+    {
+        ?>
+        <div class="message success">
+        <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+            <?php echo $msg ?>
+        <?php endforeach; ?>
+        </div>
+        <?php
+    }
+    ?>
+
+    
+    <?=$this->layout()->content?>
+    
+    <br clear="both" />
+    <div class="footer">
+        <a href="http://vehiclefits.com/" target="_blank">Add a year/make/model search to your website</a>
+        |
+        <a href="http://vehiclefits.com/contact.php" target="_blank">Contact Us</a>
+    </div>
+</body>
+</html>
