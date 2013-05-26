@@ -3,12 +3,12 @@ class ImportTest extends VF_TestCase
 {
     function doSetUp()
     {
-        $this->switchSchema('make,model,trim,year,country,category1,category2');
+        $this->switchSchema('country,category1,category2,make,model,option,year');
     }
 
     function testShouldImport()
     {
-        $import = "make,model,trim,year,country,category1,category2
+        $import = "make,model,option,year,country,category1,category2
 Goldoni,140,Base,1992,USA,Agricultural Equipment,2-Wheel Tractor
 Goldoni,140,Base,1993,USA,Agricultural Equipment,2-Wheel Tractor
 Goldoni,140,Base,1990,USA,Agricultural Equipment,2-Wheel Tractor
@@ -26,7 +26,7 @@ Goldoni,140,Base,1994,USA,Agricultural Equipment,2-Wheel Tractor";
         $exists = $finder->vehicleExists(array(
             'make'=>'Goldoni',
             'model'=>'140',
-            'trim'=>'Base',
+            'option'=>'Base',
             'year'=>'1992',
             'country'=>'USA',
             'category1'=>'Agricultural Equipment'
