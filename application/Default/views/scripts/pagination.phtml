@@ -7,30 +7,30 @@ See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
         <!-- Previous page link -->
         <?php if (isset($this->previous)): ?>
             <a class="btn" href="<?php echo $this->url(array('page' => $this->previous)); ?>">
-                &lt; Previous
-            </a> |
+                <i class="icon-backward"></i> Previous
+            </a>
         <?php else: ?>
-            <a class="btn disabled">&lt; Previous</a> |
+            <a class="btn disabled"><i class="icon-backward"></i> Previous</a> |
         <?php endif; ?>
 
         <!-- Numbered page links -->
         <?php foreach ($this->pagesInRange as $page): ?>
             <?php if ($page != $this->current): ?>
-                <a href="<?php echo $this->url(array('page' => $page)); ?>">
+                <a class="btn" href="<?php echo $this->url(array('page' => $page)); ?>">
                     <?php echo $page; ?>
-                </a> |
+                </a>
             <?php else: ?>
-                <?php echo $page; ?> |
+                <a class="btn disabled"><?php echo $page; ?></a>
             <?php endif; ?>
         <?php endforeach; ?>
 
         <!-- Next page link -->
         <?php if (isset($this->next)): ?>
             <a class="btn" href="<?php echo $this->url(array('page' => $this->next)); ?>">
-                Next &gt;
+                Next <i class="icon-forward"></i>
             </a>
         <?php else: ?>
-            <a class="btn disabled">Next &gt;</a>
+            <a class="btn disabled">Next <i class="icon-forward"></i></a>
         <?php endif; ?>
     </div>
 <?php endif; ?>

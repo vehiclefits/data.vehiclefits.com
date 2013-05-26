@@ -67,6 +67,7 @@ class BrowseController extends Zend_Controller_Action
         $paginator = new Zend_Paginator($adapter);
         $paginator->setItemCountPerPage($this->perPage());
         $paginator->setCurrentPageNumber($this->page());
+        $paginator->setPageRange(5);
         return $paginator;
     }
 

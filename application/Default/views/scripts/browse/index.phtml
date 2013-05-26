@@ -30,3 +30,6 @@ foreach($this->vehicles_list as $vehicle) {
 }
 ?>
 </table>
+<?php echo $this->paginationControl($this->paginator,
+    'Sliding',
+    'pagination.phtml')?>
