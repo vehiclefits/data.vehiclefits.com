@@ -1,21 +1,6 @@
-<h1>Selection</h1>
-<?php
-if($this->selected_vehicle) {
-    echo 'You selected ' . $this->escape($this->selected_vehicle);
-} else {
-    echo 'There is no selection.';
-}
-?>
-
-<h1>Make Selection</h1>
-<?php
-echo $this->partial('index/search.phtml', array(
-    'request' => $this->request
-));
-?>
 
 <h1>Vehicles List</h1>
-<?php echo $this->escape($this->count)?> vehicles found:
+<?php echo $this->escape(number_format($this->count))?> vehicles found.
 <?php echo $this->paginationControl($this->paginator,
         'Sliding',
         'pagination.phtml')?>

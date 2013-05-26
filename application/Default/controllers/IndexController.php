@@ -4,11 +4,15 @@ class IndexController extends Zend_Controller_Action
 
     function indexAction()
     {
-        $this->view->request = $this->getRequest();
+
         $this->view->selected_vehicle = $this->selection();
+        $this->view->request = $this->getRequest();
+        $this->render('sidebar','sidebar',true);
+
         $this->view->count = $this->count();
         $this->view->vehicles_list = $this->listVehicles();
         $this->view->paginator = $this->paginator();
+        $this->render('index','default',false);
     }
 
     function selection()
@@ -78,7 +82,7 @@ class IndexController extends Zend_Controller_Action
 
     function perPage()
     {
-        return 50;
+        return 25;
     }
 
     function page()

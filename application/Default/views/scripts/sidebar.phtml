@@ -1,0 +1,15 @@
+<h1>Selection</h1>
+<?php
+if($this->selected_vehicle) {
+    echo 'You selected ' . $this->escape($this->selected_vehicle);
+} else {
+    echo 'There is no selection.';
+}
+?>
+
+<h1>Make Selection</h1>
+<?php
+echo $this->partial('index/search.phtml', array(
+    'request' => $this->request
+));
+?>
