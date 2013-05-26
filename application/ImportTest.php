@@ -1,5 +1,5 @@
 <?php
-class ImportTest extends PHPUnit_Framework_TestCase
+class ImportTest extends VF_TestCase
 {
     function doSetUp()
     {
