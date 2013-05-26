@@ -6,11 +6,11 @@ See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
     <div class="paginationControl">
         <!-- Previous page link -->
         <?php if (isset($this->previous)): ?>
-            <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+            <a class="btn" href="<?php echo $this->url(array('page' => $this->previous)); ?>">
                 &lt; Previous
             </a> |
         <?php else: ?>
-            <span class="disabled">&lt; Previous</span> |
+            <a class="btn disabled">&lt; Previous</a> |
         <?php endif; ?>
 
         <!-- Numbered page links -->
@@ -26,11 +26,11 @@ See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
 
         <!-- Next page link -->
         <?php if (isset($this->next)): ?>
-            <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+            <a class="btn" href="<?php echo $this->url(array('page' => $this->next)); ?>">
                 Next &gt;
             </a>
         <?php else: ?>
-            <span class="disabled">Next &gt;</span>
+            <a class="btn disabled">Next &gt;</a>
         <?php endif; ?>
     </div>
 <?php endif; ?>

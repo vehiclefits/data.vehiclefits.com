@@ -33,10 +33,23 @@
         .hero-unit {
             position:relative;
             padding:25px;
+
+            background-color: #020031;
+            background-image: -moz-linear-gradient(top, #020031, #6d3353);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#020031), to(#6d3353));
+            background-image: -webkit-linear-gradient(top, #020031, #6d3353);
+            background-image: -o-linear-gradient(top, #020031, #6d3353);
+            background-image: linear-gradient(to bottom, #020031, #6d3353);
+            color:white;
         }
 
         .hero-unit h1 {
             font-size:40px;
+        }
+
+        .container-fluid {
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
         @media (max-width: 980px) {
@@ -96,7 +109,7 @@ if ($flashMessenger->hasMessages())
 
                 <h1>Open Source Automotive Data!</h1>
                 <p>Welcome to Vehicle Fits Data, open source automotive data. Free data for the community, created by the community</p>
-                <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary btn-large">Browse Data &raquo;</a></p>
+                <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary">Browse Data &raquo;</a></p>
             </div>
         </div>
 
@@ -124,6 +137,9 @@ if ($flashMessenger->hasMessages())
 
 
 </div><!--/.fluid-container-->
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>
