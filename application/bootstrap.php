@@ -4,6 +4,11 @@ define('ELITE_CONFIG_DEFAULT','vendor/vehiclefits/vehicle-fits-core/config.defau
 define('ELITE_CONFIG','config/vf.ini');
 define('ELITE_PATH',false);
 
+// used by unit tests
+define( 'VAF_DB_USERNAME', getenv('PHP_VAF_DB_USERNAME') );
+define( 'VAF_DB_PASSWORD', getenv('PHP_VAF_DB_PASSWORD') );
+define( 'VAF_DB_NAME', getenv('PHP_VAF_DB_NAME') );
+
 class bootstrap
 {
 
@@ -130,7 +135,7 @@ class bootstrap
 
     function setupDatabaseConfig()
     {
-        if(preg_match('#localhost#',$_SERVER['HTTP_HOST'])) {
+        if(!isset($_SERVER['HTTP_HOST']) || preg_match('#localhost#',$_SERVER['HTTP_HOST'])) {
             $environment = 'localhost';
         } else {
             $environment = 'production';

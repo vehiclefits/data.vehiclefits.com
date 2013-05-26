@@ -90,3 +90,10 @@ body {
 input.error {
     border:1px red solid;
 }
+.navbar .nav {
+    margin-left:15px;
+    margin-top:10px;
+}
+#logo {
+    height:40px;
+}
