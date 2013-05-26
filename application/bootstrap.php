@@ -3,9 +3,6 @@ define('VFSEARCH_BASE_PATH', dirname(__FILE__) . '/..');
 define('ELITE_CONFIG_DEFAULT','vendor/vehiclefits/vehicle-fits-core/config.default.ini');
 define('ELITE_CONFIG','config/vf.ini');
 define('ELITE_PATH',false);
-define( 'VAF_DB_USERNAME', getenv('PHP_VAF_DB_USERNAME') );
-define( 'VAF_DB_PASSWORD', getenv('PHP_VAF_DB_PASSWORD') );
-define( 'VAF_DB_NAME', getenv('PHP_VAF_DB_NAME') );
 
 class bootstrap
 {
@@ -129,7 +126,17 @@ class bootstrap
 
     function setupDatabaseConfig()
     {
-        $config = new Zend_Config_Ini(VFSEARCH_BASE_PATH . '/config/database-config.ini', 'localhost');
+        if(preg_match('#localhost#',$_SERVER['HTTP_HOST'])) {
+            $environment = 'localhost';
+        } else {
+            $environment = 'production';
+        }
+
+        if(file_exists(VFSEARCH_BASE_PATH . '/config/database.ini')) {
+            $config = new Zend_Config_Ini(VFSEARCH_BASE_PATH . '/config/database.ini', $environment);
+        } else {
+            $config = new Zend_Config_Ini(VFSEARCH_BASE_PATH . '/config/database.default.ini', $environment);
+        }
         Zend_Registry::set('database_config', $config);
         Zend_Registry::set('mysql_command', $config->mysql_command);
     }
