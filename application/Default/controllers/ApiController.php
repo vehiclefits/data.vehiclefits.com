@@ -6,9 +6,16 @@ class ApiController extends BaseController
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout->disableLayout();
 
+        $token = $this->_getParam('token');
+        $userID = $this->userIDForToken($token);
+
         $postdata = file_get_contents("php://input");
+        if(!$postdata) {
+            echo 0;
+            return;
+        }
         $this->db()->insert('vfdata_uploads', array(
-            'user_id'=>0,
+            'user_id'=>$userID,
             'uploaded'=>new Zend_Db_Expr('NOW()'),
             'name'=>'',
             'type'=>'',
@@ -37,6 +44,18 @@ class ApiController extends BaseController
 
         $this->_helper->FlashMessenger->addMessage('Generated New API Token');
         return $this->_redirect($this->view->url(array('controller'=>'user','action'=>'dashboard'),null,true));
+    }
+
+    function userIDForToken($token)
+    {
+        if(!$token) {
+            return 0;
+        }
+        return $this->db()->select()
+            ->from('vfdata_user', array('id'))
+            ->where('api_token=?',$token)
+            ->query()
+            ->fetchColumn();
     }
 
 }
