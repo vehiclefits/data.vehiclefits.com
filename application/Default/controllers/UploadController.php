@@ -6,16 +6,13 @@ class UploadController extends Zend_Controller_Action
         Zend_Registry::set('active_page','upload');
 
         $user = bootstrap::getInstance()->getUser();
-        if (!$userid = $user['id']) {
-            return $this->_redirect('/error/denied');
-        }
 
         if(!isset($_FILES['data_file'])) {
             return;
         }
 
         $this->db()->insert('vfdata_uploads', array(
-            'user_id'=>$user['id'],
+            'user_id'=>$user == false ? 0 : $user['id'],
             'uploaded'=>new Zend_Db_Expr('NOW()'),
             'name'=>$_FILES['data_file']['name'],
             'type'=>$_FILES['data_file']['type'],
@@ -24,6 +21,8 @@ class UploadController extends Zend_Controller_Action
         ));
         $id = $this->db()->lastInsertId();
         move_uploaded_file($_FILES['data_file']['tmp_name'], 'var/uploads/'.$id);
+        $this->_helper->FlashMessenger->addMessage('File Uploaded');
+        return $this->_redirect('/');
     }
 
     /** @return Zend_Db_Adapter_Abstract */

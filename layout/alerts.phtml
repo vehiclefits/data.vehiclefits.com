@@ -1,0 +1,15 @@
+<?php
+$flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
+
+if ($flashMessenger->hasMessages())
+{
+    ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+            <?php echo $msg ?>
+        <?php endforeach; ?>
+    </div>
+<?php
+}
+?>

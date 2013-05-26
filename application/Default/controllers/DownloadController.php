@@ -3,11 +3,21 @@ class DownloadController extends Zend_Controller_Action
 {
     function indexAction()
     {
+        $user = bootstrap::getInstance()->getUser();
+        if (!$userid = $user['id']) {
+            return $this->_redirect('/error/denied');
+        }
+
         Zend_Layout::getMvcInstance()->setLayout('download');
     }
 
     function csvAction()
     {
+        $user = bootstrap::getInstance()->getUser();
+        if (!$userid = $user['id']) {
+            return $this->_redirect('/error/denied');
+        }
+
         $this->_helper->viewRenderer->setNoRender(true);
         $this->_helper->layout->disableLayout();
 

@@ -15,26 +15,12 @@
 </head>
 
 <body>
-    <?php
-    $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
-
-    if ($flashMessenger->hasMessages())
-    {
-        ?>
-        <div class="message success">
-            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                <?php echo $msg ?>
-            <?php endforeach; ?>
-        </div>
-    <?php
-    }
-    ?>
-
     <?=$this->partial('navbar.phtml',array(
         'active'=>'download'
     ))?>
 
     <div class="container-fluid">
+        <?=$this->partial('alerts.phtml')?>
         <div class="row-fluid">
             <div class="row-fluid">
                 <div class="span4">
