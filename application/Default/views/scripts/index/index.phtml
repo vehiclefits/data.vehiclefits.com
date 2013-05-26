@@ -1,31 +1,43 @@
 <div class="row-fluid">
-    <div class="span4">
-        <h2>Data Share API</h2>
-        <p>User our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
-        <p><a class="btn" href="#"><i class="icon-rss-sign"></i> Data Share API</a></p>
-    </div><!--/span-->
-    <div class="span4">
-        <h2>Download Data</h2>
-        <p>Download our data in a variety of formats: CSV, XML, YAML </p>
-        <p><a class="btn" href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a></p>
-    </div><!--/span-->
-    <div class="span4">
-        <h2>Upload</h2>
-        <p>Submit your vehicle data for inclusion in our database</p>
-        <?=$this->partial('upload/form.phtml')?>
-    </div><!--/span-->
-</div><!--/row-->
+    <div class="span12">
+        <div class="hero-unit">
+            <a href="https://github.com/vehiclefits/data.vehiclefits.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
-<div class="row-fluid">
-    <div class="span4">
-        <h2>Moderate</h2>
-        <p>Help us moderate community suggestions by voting them up or down.</p>
-        <p><a class="btn disabled" href="#"><i class="icon-lightbulb"></i> View details</a></p>
-    </div><!--/span-->
-    <div class="span4">
+            <h1>Open Source Automotive Data!</h1>
+            <p>Welcome to Vehicle Fits Data, open source automotive data. Free data for the community, created by the community</p>
+            <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary">Browse Data <i class="icon-arrow-right"></i></a></p>
+        </div>
+    </div>
 
-    </div><!--/span-->
-    <div class="span4">
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Data Share API</h2>
+            <p>User our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
+            <p><a class="btn" href="#"><i class="icon-rss-sign"></i> Data Share API</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Download Data</h2>
+            <p>Download our data in a variety of formats: CSV, XML, YAML </p>
+            <p><a class="btn" href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Upload</h2>
+            <p>Submit your vehicle data for inclusion in our database</p>
+            <?=$this->partial('upload/form.phtml')?>
+        </div><!--/span-->
+    </div><!--/row-->
 
-    </div><!--/span-->
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Moderate</h2>
+            <p>Help us moderate community suggestions by voting them up or down. (Coming soon)</p>
+            <p><a class="btn disabled" href="#"><i class="icon-lightbulb"></i> View details</a></p>
+        </div><!--/span-->
+        <div class="span4">
+
+        </div><!--/span-->
+        <div class="span4">
+
+        </div><!--/span-->
+    </div><!--/row-->
 </div><!--/row-->
