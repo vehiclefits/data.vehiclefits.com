@@ -22,7 +22,7 @@ class UploadController extends Zend_Controller_Action
         $id = $this->db()->lastInsertId();
         move_uploaded_file($_FILES['data_file']['tmp_name'], 'var/uploads/'.$id);
         $this->_helper->FlashMessenger->addMessage('File Uploaded');
-        return $this->_redirect('/');
+        return $this->_redirect($_SERVER['HTTP_REFERER']);
     }
 
     /** @return Zend_Db_Adapter_Abstract */

@@ -1,5 +1,5 @@
 <?php
-class UserController extends Zend_Controller_Action
+class UserController extends BaseController
 {
 
     function loginAction()
@@ -14,13 +14,13 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getParams())) {
             $db = Zend_Registry::get('db');
             $select = $db->select()
-                ->from('user')
+                ->from('vfdata_user')
                 ->where('email=?', $this->getParam('email'));
 
             $user = $select->query()->fetch();
 
             if (sha1($form->getValue('password')) == $user['password']) {
-                $this->updateUserDataIntoSession($user['email']);
+                $this->updateUserDataIntoSession($user['id']);
                 $this->_forward('index', 'Index');
             } else {
                 $form->getElement('password')->markAsError()->addError('Invalid password or email not found');
@@ -42,6 +42,8 @@ class UserController extends Zend_Controller_Action
             ->where('user_id=?',$user['id'])
             ->query()
             ->fetchAll();
+
+        $this->view->user_data = $user;
         $this->view->uploaded_files = $uploaded_files;
     }
 
@@ -60,7 +62,7 @@ class UserController extends Zend_Controller_Action
 
         $db = Zend_Registry::get('db');
         $select = $db->select()
-            ->from('user')
+            ->from('vfdata_user')
             ->where('id=?', $this->_getParam('id'));
         $userBeingEdited = $select->query()->fetch();
 
@@ -100,7 +102,7 @@ class UserController extends Zend_Controller_Action
                 'email' => $form->getValue('email'),
                 'password' => sha1($form->getValue('password')),
             );
-            $db->insert('user', $data);
+            $db->insert('vfdata_user', $data);
 
             $this->view->type = $form->getValue('type');
             $this->view->email = $form->getValue('email');
@@ -109,22 +111,4 @@ class UserController extends Zend_Controller_Action
         }
     }
 
-    function updateUserDataIntoSession($username)
-    {
-        $db = Zend_Registry::get('db');
-        $select = $db->select()
-            ->from('user')
-            ->where('email=?', $username);
-
-        $user = $select->query()->fetch();
-
-        Zend_Registry::set('user', $user);
-        bootstrap::getInstance()->getSession()->user = $user;
-    }
-
-    /** @return Zend_Db_Adapter_Abstract */
-    function db()
-    {
-        return Zend_Registry::get('db');
-    }
 }

@@ -16,16 +16,16 @@ body {
     width:100%;
 }
 
-.vehicles_list tr:nth-child(odd)		{ background-color:#eee; }
-.vehicles_list tr:nth-child(even)		{ background-color:#fff; }
-.vehicles_list tr:first-child                 {background-color:#fff;}
-.vehicles_list tr:hover{
+table.uploaded_files { border:1px black solid; }
+table tr:nth-child(odd)		{ background-color:#eee; }
+table tr:nth-child(even)		{ background-color:#fff; }
+table tr:first-child                 {background-color:#fff;}
+table tr:hover{
     color:white;
     background-color:#6d3353;
     cursor:pointer;
 }
-.vehicles_list td, .vehicles_list th,
-.uploaded_files td, .uploaded_files th {
+table td, .vehicles_list th {
     padding:2px;
     padding-left:10px;
     padding-right:10px;

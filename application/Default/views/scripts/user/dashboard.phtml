@@ -1,30 +1,44 @@
 <h1>User dashboard</h1>
+<div class="row-fluid">
+    <div class="span4">
 
-<h2>Uploaded Files</h2>
-<?php
-if(!count($this->uploaded_files)) {
-    echo 'You have no uploads.';
-} else {
-    ?>
-    <table class="uploaded_files">
-        <tr>
-            <th>File</th>
-            <th>Uploaded</th>
-            <th>File Size</th>
-            <th>Status</th>
-        </tr>
+        <h2>API Token</h2>
+        <pre><?=$this->escape($this->user_data['api_token'])?></pre>
+        <a class="btn" href="<?=$this->url(array('controller'=>'api','action'=>'newtoken'),null,true)?>">(re)Generate API Token</a>
+    </div>
+    <div class="span8">
+
+
+        <h2>Uploaded Files</h2>
         <?php
-        foreach($this->uploaded_files as $uploaded_file) {
+        if(!count($this->uploaded_files)) {
+            echo 'You have no uploads.';
+        } else {
             ?>
-            <tr>
-                <td><?=$this->escape($uploaded_file['name'])?></td>
-                <td><?=$this->escape($uploaded_file['uploaded'])?></td>
-                <td><?=$this->escape($uploaded_file['size'])?></td>
-                <td>{status}</td>
-            </tr>
-        <?php
+            <table class="uploaded_files">
+                <tr>
+                    <th>File</th>
+                    <th>Uploaded</th>
+                    <th>File Size</th>
+                    <th>Status</th>
+                </tr>
+                <?php
+                foreach($this->uploaded_files as $uploaded_file) {
+                    ?>
+                    <tr>
+                        <td><?=$this->escape($uploaded_file['name'])?></td>
+                        <td><?=$this->escape($uploaded_file['uploaded'])?></td>
+                        <td><?=$this->escape($uploaded_file['size'])?></td>
+                        <td>{status}</td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </table>
+            <?php
         }
         ?>
-    </table>
-    <?php
-}
+        <?=$this->partial('upload/form.phtml')?>
+    </div>
+
+</div>
