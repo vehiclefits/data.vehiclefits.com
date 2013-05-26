@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>data.vehiclefits.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px;
+        }
+        .sidebar-nav h1 {
+            font-size:15px;
+            line-height:20px;
+            margin:0;
+        }
+
+
+        h1 {
+            font-size:22.5px;
+            line-height:20px;
+            margin:0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+</head>
+
+<body>
+<?php
+$flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
+
+if ($flashMessenger->hasMessages())
+{
+    ?>
+    <div class="message success">
+        <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+            <?php echo $msg ?>
+        <?php endforeach; ?>
+    </div>
+<?php
+}
+?>
+
+<?=$this->partial('navbar.phtml',array(
+    'active'=>'home'
+))?>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="hero-unit">
+                <h1>Open Source Automotive Data!</h1>
+                <p>Welcome to Vehicle Fits Data, open source automotive data. Free data for the community, created by the community</p>
+                <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary btn-large">Browse Data &raquo;</a></p>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span4">
+                <h2>Data Share API</h2>
+                <p>User our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Download Data</h2>
+                <p>Download our data in a variety of formats: CSV, XML, YAML </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+            <div class="span4">
+                <h2>Participate</h2>
+                <p>Help us moderate community suggestions by voting them up or down. Create suggestions of your own </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+        </div><!--/row-->
+
+    </div><!--/row-->
+
+    <?=$this->partial('footer.phtml')?>
+
+
+</div><!--/.fluid-container-->
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<h1>Vehicles List</h1>
+<?php echo $this->escape(number_format($this->count))?> vehicles found.
+<?php echo $this->paginationControl($this->paginator,
+        'Sliding',
+        'pagination.phtml')?>
+<table class="vehicles_list">
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Option</th>
+        <th>Year</th>
+        <th>Country</th>
+        <th>Category1</th>
+        <th>Category2</th>
+    </tr>
+<?php
+foreach($this->vehicles_list as $vehicle) {
+    ?>
+    <tr>
+        <td><?=$this->escape($vehicle->getLevel('make'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('model'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('option'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('year'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('country'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('category1'))?></td>
+        <td><?=$this->escape($vehicle->getLevel('category2'))?></td>
+    </tr>
+    <?php
+}
+?>
+</table>

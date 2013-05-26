@@ -91,28 +91,9 @@
     }
     ?>
 
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="brand" href="/index.php"><img id="logo" src="/images/logo.png" /></a>
-                <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right">
-                        Logged in as <a href="#" class="navbar-link">Username</a>
-                    </p>
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
-    </div>
+    <?=$this->partial('navbar.phtml', array(
+        'active'=>'browse'
+    ))?>
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -128,13 +109,7 @@
 
         <hr>
 
-        <footer>
-            <p>&copy; Vehicle Fits, llc 2013
-            |
-            <a href="http://vehiclefits.com/" target="_blank">Add a year/make/model search to your website</a>
-            |
-            <a href="http://vehiclefits.com/contact.php" target="_blank">Contact Us</a></p>
-        </footer>
+        <?=$this->partial('footer.phtml')?>
 
     </div><!--/.fluid-container-->
 
