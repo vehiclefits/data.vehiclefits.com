@@ -1,6 +1,26 @@
 <?php
 class ApiController extends BaseController
 {
+    function uploadAction()
+    {
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout->disableLayout();
+
+        $postdata = file_get_contents("php://input");
+        $this->db()->insert('vfdata_uploads', array(
+            'user_id'=>0,
+            'uploaded'=>new Zend_Db_Expr('NOW()'),
+            'name'=>'',
+            'type'=>'',
+            'error'=>0,
+            'size'=>strlen($postdata),
+        ));
+        $id = $this->db()->lastInsertId();
+        file_put_contents('var/uploads/'.$id, $postdata);
+
+        echo $id;
+    }
+
     function newtokenAction()
     {
         $user = bootstrap::getInstance()->getUser();

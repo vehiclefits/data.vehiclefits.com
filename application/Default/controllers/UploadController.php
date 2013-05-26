@@ -3,7 +3,8 @@ class UploadController extends Zend_Controller_Action
 {
     function indexAction()
     {
-        Zend_Registry::set('active_page','upload');
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout->disableLayout(););
 
         $user = bootstrap::getInstance()->getUser();
 
