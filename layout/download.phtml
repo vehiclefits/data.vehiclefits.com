@@ -30,23 +30,6 @@
             margin:0;
         }
 
-        .hero-unit {
-            position:relative;
-            padding:25px;
-
-            background-color: #020031;
-            background-image: -moz-linear-gradient(top, #020031, #6d3353);
-            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#020031), to(#6d3353));
-            background-image: -webkit-linear-gradient(top, #020031, #6d3353);
-            background-image: -o-linear-gradient(top, #020031, #6d3353);
-            background-image: linear-gradient(to bottom, #020031, #6d3353);
-            color:white;
-        }
-
-        .hero-unit h1 {
-            font-size:40px;
-        }
-
         .container-fluid {
             margin: 0 auto;
             max-width: 1200px;
@@ -68,6 +51,7 @@
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 
+
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
@@ -88,36 +72,26 @@ if ($flashMessenger->hasMessages())
 ?>
 
 <?=$this->partial('navbar.phtml',array(
-    'active'=>'home'
+    'active'=>'download'
 ))?>
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-            <div class="hero-unit">
-                <a href="https://github.com/vehiclefits/data.vehiclefits.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-
-                <h1>Open Source Automotive Data!</h1>
-                <p>Welcome to Vehicle Fits Data, open source automotive data. Free data for the community, created by the community</p>
-                <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary">Browse Data <i class="icon-arrow-right"></i></a></p>
-            </div>
-        </div>
-
         <div class="row-fluid">
             <div class="span4">
-                <h2>Data Share API</h2>
-                <p>User our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
-                <p><a class="btn" href="#"><i class="icon-rss-sign"></i> Data Share API</a></p>
+                <h2>CSV</h2>
+                <p>Download the data in CSV</p>
+                <p><a class="btn" href="<?=$this->url(array('controller'=>'download','action'=>'csv'),null,true)?>"><i class="icon-cloud-download icon-large"></i> Download</a></p>
             </div><!--/span-->
             <div class="span4">
-                <h2>Download Data</h2>
-                <p>Download our data in a variety of formats: CSV, XML, YAML </p>
-                <p><a class="btn" href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a></p>
+                <h2>YAML</h2>
+                <p>Under Construction</p>
+                <p><a class="btn disabled" href="#"><i class="icon-cloud-download icon-large"></i> Download</a></p>
             </div><!--/span-->
             <div class="span4">
-                <h2>Participate</h2>
-                <p>Help us moderate community suggestions by voting them up or down. Create suggestions of your own </p>
-                <p><a class="btn disabled" href="#"><i class="icon-lightbulb"></i> View details</a></p>
+                <h2>XML</h2>
+                <p>Under Construction</p>
+                <p><a class="btn disabled" href="#"><i class="icon-cloud-download icon-large"></i> Download</a></p>
             </div><!--/span-->
         </div><!--/row-->
 

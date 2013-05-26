@@ -12,8 +12,13 @@
                     Logged in as <a href="#" class="navbar-link">Username</a>
                 </p>
                 <ul class="nav">
-                    <li <?=$this->active=='home'?'class="active"':''?>><a href="/">Home</a></li>
-                    <li <?=$this->active=='browse'?'class="active"':''?>><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>">Browse</a></li>
+                    <li <?=$this->active=='home'?'class="active"':''?>><a href="/"><i class="icon-home"></i> Home</a></li>
+                    <li <?=$this->active=='browse'?'class="active"':''?>>
+                        <a href="<?=$this->url(array('controller'=>'browse'),null,true)?>"><i class="icon-search"></i> Browse</a>
+                    </li>
+                    <li <?=$this->active=='download'?'class="active"':''?>>
+                        <a href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

@@ -30,24 +30,10 @@ $search->getFlexible()->storeFitInSession();
 
     if ($search->showSearchButton()) {
 
-        // clear button
-        if ($search->showClearButton()) {
-            if ('link' == $search->clearButton()) {
-                ?><a href="#" id="vafClear"><?= $search->getClearText() ?></a><?php
-            } else {
-                ?><input type="button" id="vafClear" value="<?= $search->getClearText() ?>" /><?php
-            }
-        }
-
-        echo ' ';
-
-        // search button
-        if ('link' == $search->searchButton()) {
-            ?><a href="#" class="vafSubmit"><?= $search->getSubmitText() ?></a><?php
-        } else {
-            ?><input type="button" value="<?= $search->getSubmitText() ?>" class="vafSubmit" /><?php
-        }
-
+        ?>
+        <a href="#" id="vafClear" class="btn"><i class="icon-undo"></i> <?= $search->getClearText() ?></a>
+        <a href="#" class="btn btn-primary vafSubmit"><i class="icon-search"></i> <?= $search->getSubmitText() ?></a>
+        <?php
     }
     ?>
 </form>
