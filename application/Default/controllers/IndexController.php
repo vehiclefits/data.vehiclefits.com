@@ -1,11 +1,12 @@
 <?php
 class IndexController extends Zend_Controller_Action
 {
+    protected $selection;
 
     function indexAction()
     {
-
         $this->view->selected_vehicle = $this->selection();
+
         $this->view->request = $this->getRequest();
         $this->render('sidebar','sidebar',true);
 
@@ -17,9 +18,13 @@ class IndexController extends Zend_Controller_Action
 
     function selection()
     {
-        return $this->flexibleSearch()
+        if($this->selection) {
+            return $this->selection;
+        }
+        $this->selection = $this->flexibleSearch()
             ->vehicleSelection()
             ->getFirstVehicle();
+        return $this->selection;
     }
 
     function hasVehicleSelection()
