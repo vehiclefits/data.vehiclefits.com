@@ -1,15 +1,13 @@
 <?php
 class ImportTest extends PHPUnit_Framework_TestCase
 {
+    function doSetUp()
+    {
+        $this->switchSchema('make,model,trim,year,country,category1,category2');
+    }
+
     function testShouldImport()
     {
-        $generator = new VF_Schema_Generator;
-        $generator->dropExistingTables();
-        $generator->execute(array('make','model','trim','year','country','category1','category2'));
-
-        VF_Singleton::getInstance()
-            ->setReadAdapter(Zend_Registry::get('db'));
-
         $import = "make,model,trim,year,country,category1,category2
 Goldoni,140,Base,1992,USA,Agricultural Equipment,2-Wheel Tractor
 Goldoni,140,Base,1993,USA,Agricultural Equipment,2-Wheel Tractor

@@ -3,6 +3,9 @@ define('VFSEARCH_BASE_PATH', dirname(__FILE__) . '/..');
 define('ELITE_CONFIG_DEFAULT','vendor/vehiclefits/vehicle-fits-core/config.default.ini');
 define('ELITE_CONFIG','config/vf.ini');
 define('ELITE_PATH',false);
+define( 'VAF_DB_USERNAME', getenv('PHP_VAF_DB_USERNAME') );
+define( 'VAF_DB_PASSWORD', getenv('PHP_VAF_DB_PASSWORD') );
+define( 'VAF_DB_NAME', getenv('PHP_VAF_DB_NAME') );
 
 class bootstrap
 {

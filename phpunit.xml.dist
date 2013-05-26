@@ -13,12 +13,12 @@
         syntaxCheck="false"
         bootstrap="application/bootstrap.php">
 
-    <!--<php>-->
-        <!--<env name="PHP_TEMP_PATH" value="/tmp"/>-->
-        <!--<env name="PHP_VAF_DB_USERNAME" value="root"/>-->
-        <!--<env name="PHP_VAF_DB_PASSWORD" value=""/>-->
-        <!--<env name="PHP_VAF_DB_NAME" value="vf_core"/>-->
-    <!--</php>-->
+    <php>
+        <env name="PHP_TEMP_PATH" value="/tmp"/>
+        <env name="PHP_VAF_DB_USERNAME" value="root"/>
+        <env name="PHP_VAF_DB_PASSWORD" value=""/>
+        <env name="PHP_VAF_DB_NAME" value="vfdata"/>
+    </php>
 
     <testsuites>
         <testsuite name="main">
