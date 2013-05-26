@@ -4,7 +4,7 @@ class UploadController extends Zend_Controller_Action
     function indexAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
-        $this->_helper->layout->disableLayout(););
+        $this->_helper->layout->disableLayout();
 
         $user = bootstrap::getInstance()->getUser();
 
