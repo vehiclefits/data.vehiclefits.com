@@ -30,6 +30,15 @@
             margin:0;
         }
 
+        .hero-unit {
+            position:relative;
+            padding:25px;
+        }
+
+        .hero-unit h1 {
+            font-size:40px;
+        }
+
         @media (max-width: 980px) {
             /* Enable use of floated navbar text */
             .navbar-text.pull-right {
@@ -37,6 +46,11 @@
                 padding-left: 5px;
                 padding-right: 5px;
             }
+        }
+
+        body {
+            font-family: "museo-sans",helvetica,arial,sans-serif;
+            letter-spacing: 0.1em;
         }
     </style>
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
@@ -78,6 +92,8 @@ if ($flashMessenger->hasMessages())
     <div class="row-fluid">
         <div class="span12">
             <div class="hero-unit">
+                <a href="https://github.com/vehiclefits/data.vehiclefits.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
                 <h1>Open Source Automotive Data!</h1>
                 <p>Welcome to Vehicle Fits Data, open source automotive data. Free data for the community, created by the community</p>
                 <p><a href="<?=$this->url(array('controller'=>'browse'),null,true)?>" class="btn btn-primary btn-large">Browse Data &raquo;</a></p>
