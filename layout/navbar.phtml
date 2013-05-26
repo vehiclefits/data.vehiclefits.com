@@ -8,9 +8,26 @@
             </button>
             <a class="brand" href="/index.php"><img id="logo" src="/images/logo.png" /></a>
             <div class="nav-collapse collapse">
+
                 <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">Username</a>
+
+                    <?php
+                    $user = bootstrap::getInstance()->getUser();
+                    if($user) {
+                        ?>
+                        Logged in as <?=$this->escape($user['email'])?>.<br />
+                        <a href="<?=$this->url(array('controller'=>'user','action'=>'dashboard'),null,true)?>">Dashboard</a> |
+                        <a href="<?=$this->url(array('controller'=>'user','action'=>'logout'),null,true)?>">Log Out</a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="<?=$this->url(array('controller'=>'user','action'=>'login'),null,true)?>">Log In</a> |
+                        <a href="<?=$this->url(array('controller'=>'user','action'=>'register'),null,true)?>">Register</a>
+                        <?php
+                    }
+                    ?>
                 </p>
+
                 <ul class="nav">
                     <li <?=$this->active=='home'?'class="active"':''?>><a href="/"><i class="icon-home"></i> Home</a></li>
                     <li <?=$this->active=='browse'?'class="active"':''?>>
@@ -18,6 +35,9 @@
                     </li>
                     <li <?=$this->active=='download'?'class="active"':''?>>
                         <a href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a>
+                    </li>
+                    <li <?=$this->active=='upload'?'class="active"':''?>>
+                        <a href="<?=$this->url(array('controller'=>'upload'),null,true)?>"><i class="icon-cloud-upload"></i> Upload</a>
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->

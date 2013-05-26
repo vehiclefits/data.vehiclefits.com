@@ -7,10 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link href="/css/common.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-
+    <link href="/css/common.css" rel="stylesheet">
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
@@ -31,30 +30,11 @@
     ?>
 
     <?=$this->partial('navbar.phtml',array(
-        'active'=>'download'
+        'active'=>Zend_Registry::get('active_page')
     ))?>
 
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="row-fluid">
-                <div class="span4">
-                    <h2>CSV</h2>
-                    <p>Download the data in CSV</p>
-                    <p><a class="btn" href="<?=$this->url(array('controller'=>'download','action'=>'csv'),null,true)?>"><i class="icon-cloud-download icon-large"></i> Download</a></p>
-                </div><!--/span-->
-                <div class="span4">
-                    <h2>YAML</h2>
-                    <p>Under Construction</p>
-                    <p><a class="btn disabled" href="#"><i class="icon-cloud-download icon-large"></i> Download</a></p>
-                </div><!--/span-->
-                <div class="span4">
-                    <h2>XML</h2>
-                    <p>Under Construction</p>
-                    <p><a class="btn disabled" href="#"><i class="icon-cloud-download icon-large"></i> Download</a></p>
-                </div><!--/span-->
-            </div><!--/row-->
-
-        </div><!--/row-->
+        <?=$this->layout()->content?>
 
         <?=$this->partial('footer.phtml')?>
 

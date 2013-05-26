@@ -20,6 +20,7 @@ class ErrorController extends Zend_Controller_Action
                 // 404 error -- controller or action not found
                 $this->getResponse()->setHttpResponseCode(404);
                 $this->view->message = 'Page not found';
+                return $this->render('404');
                 break;
             default:
                 // application error 
@@ -43,11 +44,7 @@ class ErrorController extends Zend_Controller_Action
 
     function deniedAction()
     {
-        /*if( !$this->getUser()->isAuthenticated() )
-        {
-           return $this->_forward( 'index', 'Login', 'User' );
-        } */
-        $this->view->user = $this->getUser();
+
     }
 
     function notfoundAction()

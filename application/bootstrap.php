@@ -47,6 +47,10 @@ class bootstrap
             )
         );
         Zend_Layout::startMvc(VFSEARCH_BASE_PATH . '/layout/');
+        Zend_Layout::getMvcInstance()->setLayout('container');
+
+        Zend_Registry::set('active_page','');
+
         $this->setupViewHelperPaths();
         $this->getUser();
         return $this;
