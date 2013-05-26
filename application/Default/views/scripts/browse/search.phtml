@@ -5,7 +5,7 @@ $search->getFlexible()->storeFitInSession();
 
 ?>
 
-<form action="/" method="<?= $search->getMethod() ?>" id="<?= $search->formId() ?>" name="<?= $search->formId() ?>">
+<form action="<?=$this->url(array('controller'=>'browse'),null,true)?>" method="<?= $search->getMethod() ?>" id="<?= $search->formId() ?>" name="<?= $search->formId() ?>">
     <input type="hidden" id="vafProduct" value="<?= $search->getProductId() ?>"/>
 
     <!-- start "category chooser" -->
