@@ -57,28 +57,7 @@ class bootstrap
 
     function addRoutes()
     {
-        $route = new Zend_Controller_Router_Route(
-            '/parts/:make/:model/:year/:item_name/:page',
-            array(
-                'controller' => 'Index',
-                'action' => 'index',
-                'item_name' => '',
-                'make' => '',
-                'model' => '',
-                'year' => '',
-                'page' => 1
-            )
-        );
-        Zend_Controller_Front::getInstance()->getRouter()->addRoute('parts', $route);
-        $route = new Zend_Controller_Router_Route(
-            '/parts/:page',
-            array(
-                'controller' => 'Index',
-                'action' => 'index',
-                'page' => 1
-            )
-        );
-        Zend_Controller_Front::getInstance()->getRouter()->addRoute('browse', $route);
+
     }
 
     function setupViewHelperPaths()
