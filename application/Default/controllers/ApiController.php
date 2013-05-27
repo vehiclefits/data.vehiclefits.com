@@ -34,6 +34,24 @@ class ApiController extends BaseController
         echo $id;
     }
 
+    function downloadAction()
+    {
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->_helper->layout->disableLayout();
+
+        $token = $this->_getParam('token');
+        $userID = $this->userIDForToken($token);
+
+        if(!$userID) {
+            echo 'invalid token';
+            return;
+        }
+
+        $stream = fopen("php://output", 'w');
+        $export = new VF_Import_VehiclesList_CSV_Export();
+        echo $export->export($stream);
+    }
+
     function newtokenAction()
     {
         $user = bootstrap::getInstance()->getUser();

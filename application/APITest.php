@@ -75,4 +75,26 @@ class APITest extends VF_TestCase
         $this->assertEquals(1, $upload_row['user_id'], 'should associate upload to user based on his token');
     }
 
+    function testShouldRejectDownloadWithBadToken()
+    {
+        $data = file_get_contents('http://vfdata.localhost/api/download?token=bad_token');
+        $this->assertEquals('invalid token',$data);
+    }
+
+    function testShouldDownloadWithGoodToken()
+    {
+        $this->getReadAdapter()->insert('vfdata_user',array(
+            'id'=>1,
+            'api_token'=>'token123'
+        ));
+
+        $this->createVehicle(array('year'=>'2000','make'=>'Honda','model'=>'Civic'));
+
+        $data = file_get_contents('http://vfdata.localhost/api/download?token=token123');
+        $expected = "year,make,model
+2000,Honda,Civic\n";
+
+        $this->assertEquals($expected,$data,'should download data when using a good token');
+    }
+
 }
