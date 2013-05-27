@@ -3,6 +3,7 @@ class ApiController extends BaseController
 {
     function indexAction()
     {
+        Zend_Registry::set('active_page','api');
         $user = bootstrap::getInstance()->getUser();
         $this->view->api_token =  $user ? $user['api_token'] : 'your_api_token';
     }
