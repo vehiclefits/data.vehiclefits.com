@@ -1,0 +1,50 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="hero-unit">
+            <h1>API</h1>
+            <p>The API can be used to upload &amp; download data. Uploads can be sent anonymously, however downloading data requires an account. We do recommend creating an account even if you're just uploading data, even though it's not required, it's useful to check the status of your uploaded file as we process it, and can be useful if we need to contact you about your upload.</p>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+
+        <div class="span6">
+            <h2>Download Data</h2>
+            <p>Download data via the API by making a standard HTTP request to this URL:
+                <pre>http://data.vehiclefits.com/api/download?token=<?=$this->api_token?></pre></p>
+            <p>The API token is required to download data. Data will be returned to you in CSV format</p>
+
+        </div><!--/span-->
+
+        <div class="span6">
+            <h2>Upload</h2>
+            <p>
+                To upload data anonymously via the API, make a POST request to the following URL:
+                <pre>http://data.vehiclefits.com/api/upload</pre>
+            </p>
+            <p>
+                The body of your POST request should be a CSV file with field names. You may specify any field names, however if you can match the exact field names we use that is preferable!
+            </p>
+            <p>
+                If you want your uploaded files to be associated to your user account, pass your API token in the URL
+                <pre>http://data.vehiclefits.com/api/upload?token=<?=$this->api_token?></pre>
+            </p>
+        </div><!--/span-->
+    </div><!--/row-->
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Example CSV Format</h2>
+            <p><pre>make,model,option,year,country,category1,category2
+Honda,Civic,EX,2006,USA,Car,Light Duty</pre></p>
+        </div>
+    </div><!--/row-->
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>API Tokens</h2>
+            <p>You may generate an API token in your user dashboard.</p>
+        </div>
+    </div><!--/row-->
+
+</div>

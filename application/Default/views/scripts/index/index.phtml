@@ -11,11 +11,6 @@
 
     <div class="row-fluid">
         <div class="span4">
-            <h2>Data Share API</h2>
-            <p>User our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
-            <p><a class="btn" href="#"><i class="icon-rss-sign"></i> Data Share API</a></p>
-        </div><!--/span-->
-        <div class="span4">
             <h2>Download Data</h2>
             <p>Download our data in a variety of formats: CSV, XML, YAML </p>
             <p><a class="btn" href="<?=$this->url(array('controller'=>'download'),null,true)?>"><i class="icon-cloud-download"></i> Download</a></p>
@@ -24,6 +19,12 @@
             <h2>Upload</h2>
             <p>Submit your vehicle data for inclusion in our database</p>
             <?=$this->partial('upload/form.phtml')?>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Data Sharing API</h2>
+            <p>Use our two way APIs to automatically share data. As you add new vehicles to your website, you share them with us. As we add new vehicles, we share them with you.</p>
+            <p>Our API is extremely simple, view our specifications below.</p>
+            <p><a class="btn" href="<?=$this->url(array('controller'=>'api','action'=>'index'),null,true)?>"><i class="icon-rss-sign"></i> API Specifications</a></p>
         </div><!--/span-->
     </div><!--/row-->
 

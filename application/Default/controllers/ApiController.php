@@ -1,6 +1,12 @@
 <?php
 class ApiController extends BaseController
 {
+    function indexAction()
+    {
+        $user = bootstrap::getInstance()->getUser();
+        $this->view->api_token =  $user ? $user['api_token'] : 'your_api_token';
+    }
+
     function uploadAction()
     {
         $this->_helper->viewRenderer->setNoRender(true);
