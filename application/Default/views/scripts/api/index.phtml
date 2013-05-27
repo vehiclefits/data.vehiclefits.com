@@ -29,6 +29,9 @@
                 If you want your uploaded files to be associated to your user account, pass your API token in the URL
                 <pre>http://data.vehiclefits.com/api/upload?token=<?=$this->api_token?></pre>
             </p>
+            <p>
+                We will respond to your upload request with an ID corresponding to your upload. If we add an API in the future for checking the status of your upload, the ID will be used. If we respond 0, it is because we didn't receive any POST data from you.
+            </p>
         </div><!--/span-->
     </div><!--/row-->
 
