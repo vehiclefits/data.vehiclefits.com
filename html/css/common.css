@@ -32,7 +32,7 @@ table td, .vehicles_list th {
     text-align: left;
 }
 
-.paginationControl {
+.pagination {
     text-align:right;
     float:right;
 }

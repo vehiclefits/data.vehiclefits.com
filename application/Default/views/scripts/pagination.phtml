@@ -3,34 +3,53 @@ See http://developer.yahoo.com/ypatterns/pattern.php?pattern=searchpagination
 -->
 
 <?php if ($this->pageCount): ?>
-    <div class="paginationControl">
+    <div class="pagination">
+        <ul>
         <!-- Previous page link -->
-        <?php if (isset($this->previous)): ?>
-            <a class="btn" href="<?php echo $this->url(array('page' => $this->previous)); ?>">
-                <i class="icon-backward"></i> Previous
-            </a>
-        <?php else: ?>
-            <a class="btn disabled"><i class="icon-backward"></i> Previous</a> |
-        <?php endif; ?>
+        <?php
+        if (isset($this->previous)) {
+            ?>
+            <li><a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+                <i class="icon-backward"></i>
+            </a></li>
+            <?php
+        } else {
+            ?>
+            <li class="disabled"><a href="#"><i class="icon-backward"></i></a></li>
+            <?php
+        }
+        ?>
 
         <!-- Numbered page links -->
-        <?php foreach ($this->pagesInRange as $page): ?>
-            <?php if ($page != $this->current): ?>
-                <a class="btn" href="<?php echo $this->url(array('page' => $page)); ?>">
+        <?php
+        foreach ($this->pagesInRange as $page) {
+            if ($page != $this->current) {
+                ?>
+                <li class="current"><a href="<?php echo $this->url(array('page' => $page)); ?>">
                     <?php echo $page; ?>
-                </a>
-            <?php else: ?>
-                <a class="btn disabled"><?php echo $page; ?></a>
-            <?php endif; ?>
-        <?php endforeach; ?>
+                </a></li>
+                <?php
+            } else {
+                ?>
+                <li class="disabled"><a href="#"><?php echo $page; ?></a></li>
+                <?php
+            }
+        }
+        ?>
 
         <!-- Next page link -->
-        <?php if (isset($this->next)): ?>
-            <a class="btn" href="<?php echo $this->url(array('page' => $this->next)); ?>">
-                Next <i class="icon-forward"></i>
-            </a>
-        <?php else: ?>
-            <a class="btn disabled">Next <i class="icon-forward"></i></a>
-        <?php endif; ?>
+        <?php
+        if (isset($this->next)) {
+            ?>
+            <li><a href="<?php echo $this->url(array('page' => $this->next)); ?>"><i class="icon-forward"></i></a></li>
+            <?php
+        } else {
+            ?>
+            <li class="disabled"><a href="#"><i class="icon-forward"></i></a></li>
+            <?php
+        }
+        ?>
+
+        </ul>
     </div>
 <?php endif; ?>
